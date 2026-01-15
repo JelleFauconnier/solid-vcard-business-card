@@ -12,5 +12,9 @@
         "web-component",
         "business-card"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@inrupt/solid-client": "^1.25.2",
+    "@inrupt/vocab-common-rdf": "^1.0.5"
+  }
 }
