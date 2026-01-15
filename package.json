@@ -1,7 +1,7 @@
 {
   "name": "solid-vcard-business-card",
   "description": "Native Web component that renders a Solid vCard profile",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "BusinessCard.js",
   "files": [
     "BusinessCard.js"
