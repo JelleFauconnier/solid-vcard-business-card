@@ -9,6 +9,7 @@ import { VCARD } from "@inrupt/vocab-common-rdf";
 export class SolidBusinessCard extends HTMLElement {
     constructor() {
         super();
+        this.attachShadow({ mode: 'open' });
         this._profile = null;
     }
 
@@ -51,7 +52,7 @@ export class SolidBusinessCard extends HTMLElement {
     }
 
     animateGradient() {
-        const nameElement = this.querySelector('.business-card__name');
+        const nameElement = this.shadowRoot.querySelector('.business-card__name');
         if (!nameElement) return;
 
         let position = -200;
@@ -123,8 +124,11 @@ export class SolidBusinessCard extends HTMLElement {
 
 
     renderLoading() {
-        this.innerHTML = `
+        this.shadowRoot.innerHTML = `
             <style>
+                :host {
+                    display: inline-block;
+                }
                 .business-card {
                     font-family: 'Georgia', 'Times New Roman', serif;
                     background: 
@@ -138,7 +142,8 @@ export class SolidBusinessCard extends HTMLElement {
                         inset 0 0.0625rem 0.125rem rgba(255, 255, 255, 0.8);
                     padding: 2rem;
                     width: 21.875rem;
-                    height: 12.5rem;
+                    min-height: 12.5rem;
+                    box-sizing: border-box;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -163,8 +168,11 @@ export class SolidBusinessCard extends HTMLElement {
 
         const {name, email, birthday, photoUrl} = this._profile;
 
-        this.innerHTML = `
+        this.shadowRoot.innerHTML = `
             <style>
+                :host {
+                    display: inline-block;
+                }
                 .business-card {
                     font-family: 'Georgia', 'Times New Roman', serif;
                     background: 
@@ -179,7 +187,8 @@ export class SolidBusinessCard extends HTMLElement {
                         inset 0 0.0625rem 0.125rem rgba(255, 255, 255, 0.8);
                     padding: 2.5rem;
                     width: 21.875rem;
-                    height: 12.5rem;
+                    min-height: 12.5rem;
+                    box-sizing: border-box;
                     position: relative;
                     overflow: hidden;
                     transition: all 0.3s ease;
@@ -215,6 +224,7 @@ export class SolidBusinessCard extends HTMLElement {
                     flex-direction: column;
                     height: 100%;
                     justify-content: space-between;
+                    padding-right: 6rem;
                 }
                 
                 .business-card__header {
@@ -268,8 +278,8 @@ export class SolidBusinessCard extends HTMLElement {
                 
                 .business-card__picture {
                     position: absolute;
-                    top: 1.5rem;
-                    right: 1.5rem;
+                    top: 2.5rem;
+                    right: 2.5rem;
                     width: 5rem;
                     height: 5rem;
                     border-radius: 50%;
@@ -317,14 +327,13 @@ export class SolidBusinessCard extends HTMLElement {
                 }
             </style>
             <div class="business-card">
+                <div class="business-card__picture">
+                    <img src="${photoUrl}" alt="Profile picture">
+                </div>
                 <div class="business-card__content">
                     <div class="business-card__header">
                         <h3 class="business-card__name">${name}</h3>
                         <div class="business-card__divider"></div>
-                    </div>
-                    
-                    <div class="business-card__picture">
-                        <img src="${photoUrl}" alt="Profile picture">
                     </div>
                     
                     <div class="business-card__footer">
@@ -347,8 +356,11 @@ export class SolidBusinessCard extends HTMLElement {
     }
 
     renderError(error) {
-        this.innerHTML = `
+        this.shadowRoot.innerHTML = `
             <style>
+                :host {
+                    display: inline-block;
+                }
                 .business-card {
                     font-family: 'Georgia', 'Times New Roman', serif;
                     background: 
@@ -361,7 +373,8 @@ export class SolidBusinessCard extends HTMLElement {
                         0 0.25rem 1rem rgba(0, 0, 0, 0.08);
                     padding: 2rem;
                     width: 21.875rem;
-                    height: 12.5rem;
+                    min-height: 12.5rem;
+                    box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
