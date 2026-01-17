@@ -405,5 +405,5 @@ export class SolidBusinessCard extends HTMLElement {
     }
 }
 
-customElements.define('vcard-business-card', SolidBusinessCard);
+customElements.define('solid-business-card', SolidBusinessCard);
 
