@@ -3,7 +3,7 @@
 A lightweight, elegant web component that renders a beautiful business card from a [Solid Pod](https://solidproject.org/) vCard profile. This component automatically fetches and displays profile information stored in your Solid Pod using the vCard vocabulary.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![npm](https://img.shields.io/npm/v/vcard-business-card-solid)
+![npm](https://img.shields.io/npm/v/solid-vcard-business-card)
 
 ## Features
 
@@ -15,7 +15,7 @@ A lightweight, elegant web component that renders a beautiful business card from
 ## Installation
 
 ```bash
-npm install vcard-business-card-solid
+npm install solid-vcard-business-card
 ```
 
 ## Quick Start
@@ -23,13 +23,13 @@ npm install vcard-business-card-solid
 ### In a JavaScript Module
 
 ```javascript
-import 'vcard-business-card-solid';
+import 'solid-vcard-business-card';
 ```
 
 Then use the component in your HTML:
 
 ```html
-<vcard-business-card src="https://your-pod.solidcommunity.net/profile/card#me"></vcard-business-card>
+<solid-business-card src="https://your-pod.solidcommunity.net/profile/card#me"></solid-business-card>
 ```
 
 ### In HTML (with bundler)
@@ -41,10 +41,10 @@ Then use the component in your HTML:
     <title>My Business Card</title>
 </head>
 <body>
-    <vcard-business-card src="https://your-pod.solidcommunity.net/profile/card#me"></vcard-business-card>
+    <solid-business-card src="https://your-pod.solidcommunity.net/profile/card#me"></solid-business-card>
     
     <script type="module">
-        import 'vcard-business-card-solid';
+        import 'solid-vcard-business-card';
     </script>
 </body>
 </html>
@@ -56,12 +56,12 @@ Then use the component in your HTML:
 ```javascript
 import { createApp } from 'vue';
 import App from './App.vue';
-import 'vcard-business-card-solid';
+import 'solid-vcard-business-card';
 
 const app = createApp(App);
 
 // Configure Vue to recognize the custom element
-app.config.compilerOptions.isCustomElement = (tag) => tag === 'vcard-business-card';
+app.config.compilerOptions.isCustomElement = (tag) => tag === 'solid-business-card';
 
 app.mount('#app');
 ```
@@ -75,7 +75,7 @@ const profileUrl = ref('https://your-pod.solidcommunity.net/profile/card#me');
 </script>
 
 <template>
-  <vcard-business-card :src="profileUrl"></vcard-business-card>
+  <solid-business-card :src="profileUrl"></solid-business-card>
 </template>
 ```
 
@@ -86,7 +86,7 @@ const profileUrl = ref('https://your-pod.solidcommunity.net/profile/card#me');
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import 'vcard-business-card-solid'; // Register the web component
+import 'solid-vcard-business-card'; // Register the web component
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -101,7 +101,7 @@ root.render(
 
 function App() {
   return (
-    <vcard-business-card 
+    <solid-business-card 
       src="https://your-pod.solidcommunity.net/profile/card#me"
     />
   );
