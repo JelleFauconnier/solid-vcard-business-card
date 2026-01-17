@@ -6,7 +6,7 @@ import {
 } from "@inrupt/solid-client";
 import { VCARD } from "@inrupt/vocab-common-rdf";
 
-class SolidBusinessCard extends HTMLElement {
+export class SolidBusinessCard extends HTMLElement {
     constructor() {
         super();
         this._profile = null;
@@ -82,7 +82,6 @@ class SolidBusinessCard extends HTMLElement {
             const dataset = await getSolidDataset(profileUrl.trim());
             const things = getThingAll(dataset);
 
-
             let profileThing = null;
             for (const thing of things) {
                 const name = getStringNoLocale(thing, VCARD.fn);
@@ -106,8 +105,6 @@ class SolidBusinessCard extends HTMLElement {
             const birthday = getStringNoLocale(profileThing, VCARD.bday) || "";
 
             const photoUrl = getUrl(profileThing, VCARD.hasPhoto);
-
-            console.log("Extracted profile data:", { name, email, birthday, photoUrl});
 
             this._profile = {
                 name,

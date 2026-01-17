@@ -1,11 +1,24 @@
 {
-  "name": "solid-vcard-business-card",
+  "name": "vcard-business-card-solid",
   "description": "Native Web component that renders a Solid vCard profile",
+  "author": "Jelle Fauconnier",
+  "type": "module",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
   "files": [
-    "src/index.js"
+    "src",
+    "index.js",
+    "index.d.ts",
+    "README.md"
   ],
+  "sideEffects": "True",
   "keywords": [
         "solid",
         "vcard",
@@ -14,7 +27,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@inrupt/solid-client": "^1.25.2",
+    "@inrupt/solid-client": "^1.30.2",
     "@inrupt/vocab-common-rdf": "^1.0.5"
   }
 }
