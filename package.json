@@ -29,5 +29,9 @@
   "dependencies": {
     "@inrupt/solid-client": "^1.30.2",
     "@inrupt/vocab-common-rdf": "^1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JelleFauconnier/solid-vcard-business-card.git"
   }
 }
