@@ -3,7 +3,7 @@
   "description": "Native Web component that renders a Solid vCard profile",
   "author": "Jelle Fauconnier",
   "type": "module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "index.js",
   "types": "index.d.ts",
   "exports": {
