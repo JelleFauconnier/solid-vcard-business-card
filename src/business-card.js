@@ -140,12 +140,7 @@ export class SolidBusinessCard extends HTMLElement {
                     transition: box-shadow 0.2s ease, transform 0.2s ease;
                     margin: 0.625rem;
                     border: 0.0625rem solid #e5e7eb;
-                }
-                
-                .business-card:hover {
-                    transform: translateY(-0.125rem);
-                    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
-                }
+                }         
                 
                 .business-card__content {
                     display: flex;
