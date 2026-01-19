@@ -118,7 +118,6 @@ export class SolidBusinessCard extends HTMLElement {
                     border-radius: 0.5rem;
                     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
                     padding: 2rem;
-                    width: 25rem;
                     min-height: 12.5rem;
                     box-sizing: border-box;
                     display: flex;
@@ -157,7 +156,6 @@ export class SolidBusinessCard extends HTMLElement {
                     border-radius: 0.5rem;
                     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
                     padding: 2rem;
-                    width: 25rem;
                     min-height: 12.5rem;
                     box-sizing: border-box;
                     position: relative;
@@ -284,7 +282,6 @@ export class SolidBusinessCard extends HTMLElement {
                     border-radius: 0.5rem;
                     box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
                     padding: 2rem;
-                    width: 25rem;
                     min-height: 12.5rem;
                     box-sizing: border-box;
                     display: flex;
