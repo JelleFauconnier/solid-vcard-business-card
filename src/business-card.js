@@ -1,8 +1,11 @@
 import {
     getSolidDataset,
     getThingAll,
+    getThing,
     getStringNoLocale,
     getUrl,
+    getDate,
+    getLiteral,
 } from "@inrupt/solid-client";
 import { VCARD } from "@inrupt/vocab-common-rdf";
 
@@ -55,11 +58,33 @@ export class SolidBusinessCard extends HTMLElement {
 
             const name = getStringNoLocale(profileThing, VCARD.fn) || "Unknown Name";
 
-            const emailUrl = getUrl(profileThing, VCARD.hasEmail);
+            // Handle linked email node (e.g., vcard:hasEmail <#id123> -> <#id123> vcard:value <mailto:...>)
+            let email = "";
+            const emailNodeUrl = getUrl(profileThing, VCARD.hasEmail);
+            if (emailNodeUrl) {
+                const emailThing = getThing(dataset, emailNodeUrl);
+                if (emailThing) {
+                    const emailValue = getUrl(emailThing, VCARD.value);
+                    email = emailValue ? emailValue.replace("mailto:", "") : "";
+                } else {
+                    // Fallback: direct mailto: URL
+                    email = emailNodeUrl.replace("mailto:", "");
+                }
+            }
 
-            const email = emailUrl ? emailUrl.replace("mailto:", "") : "";
-
-            const birthday = getStringNoLocale(profileThing, VCARD.bday) || "";
+            // Handle birthday - try typed date first, then literal, then string fallback
+            let birthday = "";
+            const bdayDate = getDate(profileThing, VCARD.bday);
+            if (bdayDate) {
+                birthday = bdayDate.toISOString().split('T')[0];
+            } else {
+                const bdayLiteral = getLiteral(profileThing, VCARD.bday);
+                if (bdayLiteral) {
+                    birthday = bdayLiteral.value;
+                } else {
+                    birthday = getStringNoLocale(profileThing, VCARD.bday) || "";
+                }
+            }
 
             const photoUrl = getUrl(profileThing, VCARD.hasPhoto);
 
