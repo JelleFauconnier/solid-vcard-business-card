@@ -3,7 +3,7 @@
   "description": "Native Web component that renders a Solid vCard profile",
   "author": "Jelle Fauconnier",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "main": "index.js",
   "types": "index.d.ts",
   "exports": {
@@ -29,5 +29,9 @@
   "dependencies": {
     "@inrupt/solid-client": "^1.30.2",
     "@inrupt/vocab-common-rdf": "^1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JelleFauconnier/solid-vcard-business-card.git"
   }
 }
